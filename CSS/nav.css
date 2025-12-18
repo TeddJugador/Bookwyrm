@@ -1,0 +1,299 @@
+
+/* Navbar Base */
+.navbar {
+    background-color: transparent;
+    padding: 1rem 2rem;
+    position: absolute;
+    z-index: 200;
+    width: 100%;
+    top: 0;
+    left: 0;
+    transition: all 0.3s ease;
+}
+
+.navbar.scrolled {
+    position: fixed;
+    background-color: rgba(176, 58, 45, 0.95);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    padding: 0.5rem 2rem;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+#logo {
+    width: 50px;
+    height: auto;
+    transition: width 0.3s;
+}
+@keyframes shake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { transform: translate(-3px, 0px) rotate(1deg); }
+    30% { transform: translate(3px, 2px) rotate(0deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-3px, 1px) rotate(0deg); }
+    70% { transform: translate(3px, 1px) rotate(-1deg); }
+    80% { transform: translate(-1px, -1px) rotate(1deg); }
+    90% { transform: translate(1px, 2px) rotate(0deg); }
+    100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+
+.logo-and-name {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.logo {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.logo-img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.navbar-brand {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.navbar.scrolled .navbar-brand {
+    color: var(--secondary-color);
+}
+
+/* Navbar Links */
+.navbar-nav {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+}
+
+.navbar-nav li {
+    position: relative;
+}
+
+.navbar-nav a {
+    text-decoration: none;
+    color: var(--primary-color);
+    font-weight: 700;
+    font-size: 1rem;
+    padding: 0.5rem 0.75rem;
+    transition: all 0.3s;
+}
+
+.navbar.scrolled .navbar-nav a {
+    color: white;
+}
+
+.navbar-nav a:hover {
+    color: var(--secondary-color);
+}
+
+/* Auth Buttons */
+.auth-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.btn {
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius);
+    border: none;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.btn-outline {
+    background: transparent;
+    border: 2px solid var(--secondary-color);
+    color: var(--secondary-color);
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+.btn-outline:hover {
+    transform: scale(1.05); /* Slightly reduced scale for better UI */
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.navbar.scrolled .btn-outline {
+    border: 2px solid var(--secondary-color);
+    color: var(--secondary-color);
+}
+/* Adjusted hover for scrolled state */
+.navbar.scrolled .btn-outline:hover {
+    background: var(--secondary-color); 
+    color: var(--primary-color);
+    border-color: var(--secondary-color);
+}
+
+/* Hamburger Button */
+.burger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 25px;
+    height: 20px;
+    cursor: pointer;
+    z-index: 300;
+}
+
+.burger span {
+    height: 3px;
+    width: 100%;
+    background-color: var(--primary-color);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+/* Hamburger Animation */
+.burger.toggle span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.burger.toggle span:nth-child(2) {
+    opacity: 0;
+}
+
+.burger.toggle span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Footer */
+footer {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 3rem 1rem 1rem;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    max-width: 1200px;
+    margin: 0 auto 2rem auto;
+    width: 90%;
+}
+
+.footer-logo-and-name {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.footer-img {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: contain;
+}
+
+.footer-brand {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--secondary-color);
+}
+
+.footer-column h3 {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    color: var(--secondary-color);
+}
+
+.footer-links a {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: white;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: var(--secondary-color);
+}
+
+.copyright {
+    text-align: center;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    font-size: 0.85rem;
+}
+
+.mobile-only-link{
+    display: none;
+}
+
+
+@media (max-width: 768px) {
+
+    .mobile-only-link{
+        display: block;
+    }
+    /* Mobile Nav Overrides */
+    .burger {
+        display: flex;
+    }
+    .navbar-nav {
+        /* Initial hidden state */
+        position: fixed; /* Use fixed to cover all content below nav */
+        top: 70px; /* Below the header height */
+        left: 0;
+        width: 100%;
+        flex-direction: column;
+        background-color: var(--primary-color); 
+        padding: 1rem 0;
+        border-top: 1px solid rgba(255,255,255,0.1);
+        transform: translateX(100%); /* Start off-screen right */
+        opacity: 0;
+        pointer-events: none;
+        transition: transform 0.4s ease-out, opacity 0.4s ease-out;
+        height: 100vh;
+    }
+    .navbar-nav.nav-active {
+        transform: translateX(0); /* Slide into view */
+        opacity: 1;
+        pointer-events: auto;
+    }
+    .navbar-nav li {
+        text-align: center;
+        width: 100%;
+        margin: 10px 0;
+    }
+    .navbar-nav a {
+        color: white !important;
+        display: block;
+        padding: 0.75rem 0;
+    }
+    .auth-buttons {
+        display: none; 
+    }
+
+    .navbar.scrolled .burger span {
+        background-color: white; 
+    }
+    .navbar-brand {
+        color: var(--secondary-color); 
+    }
+}

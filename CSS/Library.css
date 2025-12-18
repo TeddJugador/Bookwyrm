@@ -1,0 +1,351 @@
+/*  Munashe Madziwanyika - g23M8754
+    Theodore Masi - g23M7028
+    Kyle Nkomo - g23N8653
+    Keith Dube - g23D5910 
+*/
+:root {
+    --primary-color: #B03A2D;
+    --secondary-color: #D58936;
+    --neutral: #c1c6c9;
+    --text-color: #383232;
+    --background-color: #f0f3f5;
+    --border-radius: 12px;
+    --box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+a{
+    text-decoration: none;
+}
+
+h3{
+    text-align: center;
+}
+
+body {
+    background-color: var(--neutral);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+/* Triggers a shaking */
+/* .nav-logo img:hover {
+    animation: shake 0.5s;
+    animation-iteration-count: infinite;
+    width: 100px;
+    height: auto;
+} */
+
+#logo {
+    width: 50px;
+    height: auto;
+    transition: width 0.3s;
+}
+
+@keyframes shake {
+  0% { transform: translate(1px, 1px) rotate(0deg); }
+  10% { transform: translate(-1px, -2px) rotate(-1deg); }
+  20% { transform: translate(-3px, 0px) rotate(1deg); }
+  30% { transform: translate(3px, 2px) rotate(0deg); }
+  40% { transform: translate(1px, -1px) rotate(1deg); }
+  50% { transform: translate(-1px, 2px) rotate(-1deg); }
+  60% { transform: translate(-3px, 1px) rotate(0deg); }
+  70% { transform: translate(3px, 1px) rotate(-1deg); }
+  80% { transform: translate(-1px, -1px) rotate(1deg); }
+  90% { transform: translate(1px, 2px) rotate(0deg); }
+  100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+
+/*Theo trying things*/
+.top-label{
+    text-align: center;
+    background: white;
+    margin:0;
+    width:100%;
+    padding-bottom: 1rem;
+}
+
+/*filter section*/
+
+.filter-section {
+    padding:2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    border:3px solid var(--light-gray);
+    margin-left: 2rem;
+}
+
+
+.filter-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.search-group {
+    grid-column: 1 / -1;
+}
+
+.search-group label,
+.filter-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: var(--primary-color);
+}
+
+.search-group input,
+.filter-group select {
+    width: 100%;
+    padding: 0.7rem;
+    border: 1px solid lightgray;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+.btn-primary{
+    display: inline-block;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+    padding: 0.8rem 2rem;
+    border-radius: var(--border-radius);
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.btn-outline{
+    display: inline-block;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+    padding: 0.8rem 2rem;
+    border-radius: var(--border-radius);
+    background-color: darkgray;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.filter-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+
+/*Gallery slideshow*/
+
+.slider{
+    height:90vh;
+    position:relative;
+    margin:auto;
+    overflow: hidden;
+}
+
+.slider img{
+    width:100%;
+    display: none;
+}
+
+img.displaySlide{
+    display: block;
+    animation-name:fade;
+    animation-duration: 1.5s;
+}
+
+
+.slider button{
+    position: absolute;
+    top:50%;
+    transform: translate(-50%);
+    font-size: 2rem;
+    background-color: hsla(0,0%,0%,0.5) ;
+    color: var(--primary-color);
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem 0.5rem;
+    border-radius: 0.4rem;
+}
+
+.prev{
+    margin-left: 3rem;
+    left:0;
+}
+
+.next{
+    right:0;
+    margin-right: 0;
+}
+
+
+/* Pagination */
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 2rem;
+    
+}
+.pagination a{
+    text-decoration: none;
+}
+
+.btn-pagination {
+    padding: 0.5rem 1rem;
+    border: 1px solid lightgray;
+    background: white;
+    color: black;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn-pagination-active{
+    padding: 0.5rem 1rem;
+    border: 1px solid lightgray;
+    background: var(--primary-color);
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn-pagination:hover:not(.active) {
+    background: lightgray;
+}
+
+
+.to-top button{
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    background-color: var(--secondary-color);
+    border: 0;
+    position: fixed;
+    bottom: 20px;   /* distance from bottom */
+    right: 20px;    /* distance from right */
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); /* main shadow */
+}
+
+.to-top button:hover {
+    transform: scale(1.1);
+    background-color: var(--primaryColor);
+    color: white;
+}
+
+/* Book Library */
+
+#BookShelf{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 2rem;
+}
+#book-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    width:100%;
+}
+
+
+.book-card {
+    background: var(--background-color);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+    border: 1px solid var(--neutral);
+}
+
+.book-card:hover {
+    transform: translateY(-5px);
+}
+
+.book-image {
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+}
+
+.book-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.book-stats {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 15px;
+    font-size: 0.9em;
+    color: var(--text-color);
+}
+
+.book-status {
+    padding: 5px 10px;
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+    font-size: 0.8em;
+}
+
+.status-ongoing {
+    background-color: #f39c12; 
+}
+
+.status-finished {
+    background-color: #27ae60; 
+}
+
+#view-all-books {
+    display: inline-block;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+    padding: 0.8rem 2rem;
+    border-radius: var(--border-radius);
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+#view-all-books:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-2px);
+}
+
+.view-button{
+    align-items: center;
+}
+
+
+.rotate {
+    animation: spin 0.5s linear; /* half-second spin */
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    } to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes fade{
+    from{opacity: .5}
+    to{opacity: 1}
+}

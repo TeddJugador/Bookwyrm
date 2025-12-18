@@ -1,0 +1,471 @@
+:root {
+    --primary-color: #B03A2D; /* Deep Red/Maroon */
+    --secondary-color: #D58936; /* Darker Orange/Ochre */
+    --accent: #d12020ff; 
+    --neutral: #c1c6c9;
+    --background-color: #F9FAFB;
+    --text-dark: #1F2937;
+    --text-light: #4B5563;
+    --dark-color: #333333; 
+    --light-color: #F2F2F2;
+    --gray-color: #555555;
+    --white: #ffffff;
+    --radius-sm: 0.5rem;
+    --border-radius: 1rem;
+    --box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+/* Global Reset and Typography */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: var(--text-dark);
+    background-color: var(--background-color);
+    line-height: 1.6;
+    scroll-behavior: smooth;
+}
+
+.container {
+    max-width: 1280px;
+    width: 90%;
+    margin: 0 auto;
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: var(--secondary-color);
+}
+/* General section styles  */
+.section {
+    padding: 80px 0;
+    background-color: var(--background-color);
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 50px;
+    position: relative;
+}
+
+.section-title h2 {
+    font-size: 36px;
+    color: var(--primary-color);
+    display: inline-block;
+    padding-bottom: 10px;
+}
+
+.section-title h2::after {
+    content: '';
+    position: absolute;
+    width: 100px;
+    height: 3px;
+    background-color: var(--secondary-color);
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/*  RECOMMENDED SECTION*/
+.recommended {
+    background-color: var(--dark-color);
+    color: white;
+}
+
+.recommended .section-title h2 {
+    color: var(--secondary-color);
+}
+
+.recommended-slider {
+    position: relative;
+    height: 500px;
+    overflow: hidden;
+    border-radius: var(--border-radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease-in-out; 
+}
+
+.recommended-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease;
+    display: flex;
+    align-items: center;
+    padding: 0 50px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.recommended-slide:first-child.active {
+    transition: opacity 1.2s ease-in;
+}
+
+
+.recommended-slide::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6); 
+}
+
+.recommended-slide.active {
+    opacity: 1;
+}
+
+.slide-content {
+    z-index: 10;
+    max-width: 500px;
+    padding: 30px; 
+    border-radius: var(--border-radius);
+    background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(2px);
+    border: 1px solid var(--secondary-color);
+}
+
+.slide-content h3 {
+    font-size: 28px;
+    margin-bottom: 15px;
+    color: var(--secondary-color);
+}
+
+.slide-content p {
+    margin-bottom: 20px;
+}
+
+.btn-read {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+.btn-read:hover {
+    background-color: var(--secondary-color);
+}
+
+.slider-controls {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+    padding: 0 10px;
+    pointer-events: none; 
+}
+.slider-btn {
+    pointer-events: auto; 
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: var(--box-shadow);
+    font-size: 1.5em;
+    user-select: none;
+}
+
+.slider-btn:hover {
+    background-color: var(--secondary-color);
+}
+
+/* --- Search Bar Styling --- */
+#search-container {
+    margin-top: 10rem;
+    width: 100%;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+#manga-search {
+    width: 100%;
+    max-width: 600px;
+    padding: 0.75rem 1.25rem;
+    border: 2px solid var(--neutral);
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    outline: none;
+    margin-bottom: 2rem;
+}
+
+#manga-search::placeholder {
+    color: var(--text-light);
+}
+
+#manga-search:focus {
+    border-color: var(--secondary-color);
+    /* Soft shadow based on secondary color */
+    box-shadow: 0 0 0 3px rgba(213, 137, 54, 0.2); 
+}
+
+/* --- Genre Filter Buttons & Clear Button --- */
+#genre-filter-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    justify-content: center;
+    padding: 0 0 2rem 0;
+}
+
+/* Row for the clear button */
+#controls-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    gap:1rem;
+}
+
+#special-btn{
+    border:none;
+    background:none;
+    padding:0;
+    margin:0;
+    cursor:pointer;
+}
+
+input[type="checkbox"] {
+    display: none;
+}
+
+
+.genre-btn {
+    padding: 0.5rem 1rem;
+    border: 2px solid var(--primary-color);
+    background-color: transparent;
+    color: var(--primary-color);
+    font-weight: 600;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.genre-btn:hover {
+    background-color: var(--primary-color);
+    color: var(--white);
+    box-shadow: var(--box-shadow);
+}
+
+/* Active style used for selected genres and the 'All' button when no others are selected */
+.genre-btn-active {
+    background-color: var(--primary-color);
+    color: var(--white);
+    border-color: var(--primary-color);
+    transform: scale(1.05);
+    box-shadow: var(--shadow-lg);
+}
+
+/* Style for the Clear Filters button */
+.clear-filters-btn {
+    border-color: var(--text-light);
+    color: var(--text-dark);
+    background-color: var(--neutral);
+    font-weight: 700;
+    padding: 0.6rem 1.5rem; 
+    transform: scale(1);
+    border-radius: 0.5rem;
+}
+
+.clear-filters-btn:hover {
+        background-color: var(--text-light);
+        color: var(--white);
+}
+
+.apply-filters-btn {
+    border-color: var(--text-light);
+    color: var(--white);
+    background-color: var(--primary-color);
+    font-weight: 700;
+    padding: 0.6rem 1.5rem; 
+    transform: scale(1);
+    border-radius: 0.5rem;
+}
+
+.apply-filters-btn:hover {
+        background-color: var(--accent);
+        color: var(--white);
+}
+
+
+/* --- Manga Grid --- */
+#manga-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    padding-bottom: 4rem;
+}
+
+.manga-card-link {
+    text-decoration: none;
+}
+
+.manga-card {
+    background-color: var(--white);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+    max-width: 15rem;
+}
+ 
+.manga-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.manga-card img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-bottom: 3px solid var(--primary-color);
+}
+
+.manga-info {
+    padding: 0.5rem;
+}
+
+.manga-info h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+    color: var(--primary-color);
+}
+
+.manga-info p {
+    font-size: 0.85rem;
+    color: var(--text-light);
+    margin-bottom: 0.5rem;
+}
+
+.manga-genres {
+    font-size: 0.75rem;
+    color: var(--text-dark);
+    font-weight: 600;
+    padding-top: 0.5rem;
+    border-top: 1px dashed var(--neutral);
+}
+
+/* --- Pagination Controls (NEW) --- */
+
+.pagination{
+    display: flex;
+    gap: 0.5rem;
+    padding: 2rem 0 4rem 0;
+    border-top: 1px solid var(--neutral);
+    margin: 2rem;
+}
+
+.page-info {
+    font-size: 1rem;
+    color: var(--text-light);
+    font-weight: 600;
+    justify-content: left;
+    align-items: left;
+}
+
+
+#pagination-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 2rem 0 4rem 0;
+    border-top: 1px solid var(--neutral);
+    margin-top: 2rem;
+}
+
+.page-btn {
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--neutral);
+    background-color: var(--white);
+    color: var(--text-dark);
+    font-weight: 600;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.page-btn:hover:not(.active):not(:disabled) {
+    background-color: var(--neutral);
+    color: var(--primary-color);
+}
+
+.page-btn-active {
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--neutral);
+    background-color: var(--primary-color);
+    color: var(--white);
+    font-weight: 600;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.page-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+
+
+
+/* =================================== */
+/* RESPONSIVE DESIGN (Media Queries)   */
+/* =================================== */
+
+@media (max-width: 768px) {
+    #manga-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 1rem;
+    }
+    
+    .manga-card img {
+        height: 220px;
+    }
+    
+    #controls-row {
+            margin-bottom: 1rem;
+    }
+    
+    #pagination-controls {
+        flex-wrap: wrap;
+        gap: 0.4rem;
+        padding: 1rem 0 2rem 0;
+    }
+    
+    .page-btn {
+        padding: 0.4rem 0.7rem;
+    }
+}

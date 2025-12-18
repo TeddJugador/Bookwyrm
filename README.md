@@ -1,0 +1,8 @@
+- Make sure image/video image quality does not vary too much to avoid performance issues
+- Author page top upload
+- page for reading a book
+- back end for reviews, signing up, and logging in
+- dashboard for all 3 roles
+- form validation
+- 
+- 

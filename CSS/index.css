@@ -1,0 +1,398 @@
+/*  Munashe Madziwanyika - g23M8754
+    Theodore Masi - g23M7028
+    Kyle Nkomo - g23N8653
+    Keith Dube - g23D5910 
+*/
+:root {
+    --primary-color: #B03A2D;
+    --secondary-color: #D58936;
+    --neutral: #c1c6c9;
+    --text-color: #383232;
+    --background-color: #f0f3f5;
+    --border-radius: 12px;
+    --box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+a{
+    text-decoration: none;
+}
+
+h3{
+    text-align: center;
+}
+
+body {
+    background-color: var(--neutral);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+
+
+#logo {
+    width: 50px;
+    height: auto;
+    transition: width 0.3s;
+}
+@keyframes shake {
+  0% { transform: translate(1px, 1px) rotate(0deg); }
+  10% { transform: translate(-1px, -2px) rotate(-1deg); }
+  20% { transform: translate(-3px, 0px) rotate(1deg); }
+  30% { transform: translate(3px, 2px) rotate(0deg); }
+  40% { transform: translate(1px, -1px) rotate(1deg); }
+  50% { transform: translate(-1px, 2px) rotate(-1deg); }
+  60% { transform: translate(-3px, 1px) rotate(0deg); }
+  70% { transform: translate(3px, 1px) rotate(-1deg); }
+  80% { transform: translate(-1px, -1px) rotate(1deg); }
+  90% { transform: translate(1px, 2px) rotate(0deg); }
+  100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+
+/* Hero Section */
+.hero {
+    background-image: url("images/kakashiHeader.jpg");
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 2rem;
+    min-height: 36rem;
+    width: 100%;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.hero-text {
+    padding: 9rem 5rem 5rem 5rem;
+    width: 50%;
+    max-height: 800px;
+    text-align: center;
+}
+
+.hero-text h1 {
+    font-size: clamp(2rem, 5vw, 2.5rem);
+    color: var(--secondary-color);
+}
+
+.hero-text p {
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+}
+
+/* Book Library */
+
+#BookShelf{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#book-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    width:100%;
+}
+
+
+.book-card {
+    background: var(--background-color);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+    border: 1px solid var(--neutral);
+}
+
+.book-card:hover {
+    transform: translateY(-5px);
+}
+
+.book-image {
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+}
+
+.book-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.book-stats {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 15px;
+    font-size: 0.9em;
+    color: var(--text-color);
+}
+
+.book-status {
+    padding: 5px 10px;
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+    font-size: 0.8em;
+}
+
+.status-ongoing {
+    background-color: #f39c12; 
+}
+
+.status-finished {
+    background-color: #27ae60; 
+}
+
+#view-all-books {
+    display: inline-block;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+    padding: 0.8rem 2rem;
+    border-radius: var(--border-radius);
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+#view-all-books:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-2px);
+}
+
+/* About Us Section */
+.aboutUs {
+    background-color: var(--background-color);
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.aboutUs h2 {
+    font-size: 2rem;
+    color: var(--secondary-color);
+    margin-bottom: 2rem;
+}
+
+
+.aboutUs > section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem; 
+}
+
+/* Each card */
+.avatar-card {
+    background-color: white;
+    border-radius: var(--border-radius);
+    padding: 1rem 2rem;
+    width: 220px;
+    box-shadow: var(--box-shadow);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: transform 0.3s ease;
+} 
+
+.avatar-card:hover {
+    transform: translateY(-5px);
+}
+
+.avatar-img {
+    border-radius: 50%; 
+    margin-bottom: 0.5rem;
+}
+
+.aboutUs h3 {
+    font-size: 1.2rem;
+    margin: 0.5rem 0;
+    color: var(--primary-color);
+}
+
+.aboutUs p {
+    font-size: 0.9rem;
+    color: var(--text-color);
+}
+
+/* Contact Us Section */
+.contactUs {
+    display: flex;
+    flex-direction: row;
+    padding: 3rem 1rem 5rem 1rem;
+    width: 100%;
+    gap: 2rem;
+    align-items: flex-start; 
+}
+
+.contactF {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contactUs h2 {
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+}
+
+
+#contact-form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 500px;
+}
+
+.contact-text h2, .contact-text p{
+    text-align: center;
+}
+.form-stuff {
+    display: flex;
+    flex-direction: row;
+    padding: 1rem 0;
+    gap: 2rem;
+}
+
+.form-stuff label {
+    flex: 1;
+    text-align: left;
+}
+
+.form-stuff input,
+.form-stuff textarea {
+    flex: 2;
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--text-color);
+    font-size: 1rem;
+}
+
+.form-stuff textarea {
+    min-height: 5rem;
+    max-height: 5rem;
+    resize: none;
+    text-align: left;
+}
+
+#contact-form input[type="submit"] {
+    background-color: var(--secondary-color);
+    color: var(--background-color);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--text-color);
+    height: 2.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#contact-form input[type="submit"]:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.contactF p {
+    line-height: 1.5;
+    text-align: center;
+    padding-bottom: 1rem;
+}
+
+.contactV {
+    flex: 1;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    overflow: visible;
+}
+
+.contactV video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: var(--border-radius);
+}
+
+
+
+
+/* Responsive Section */
+@media (max-width: 768px) {
+    /* Hero Section */
+    .hero {
+        flex-direction: row;
+        align-items: center;
+        height: 50vh;
+    }
+    
+    .hero-text {
+        padding: 1rem;
+        width: 90%;
+        position: relative;
+        text-align: center;
+    }
+
+    /* Contact Section */
+    .contactUs {
+        flex-direction: column;
+        align-items: center;
+        background-image: url(images/wallpaper.jpg);
+        
+    }
+
+    .contactV {
+        width: 90%;
+        max-height: 300px;
+        margin-top: 2rem;
+    }
+
+    /* About Us */
+    .avatar-card {
+        width: 45%;       
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    /* About Us */
+    .avatar-card {
+        width: 100%;       
+        margin: 0 auto;   
+    }
+
+    .contactV {
+        width: 100%;
+    }
+}
+
+/* Custom Scrollbar */
+html::-webkit-scrollbar {
+  width: 6px; /* Slimmer scroll bar */
+}
+
+#footer-logo {
+    transition: transform 0.5s;
+}
+
+.rotate {
+    animation: spin 0.5s linear; /* half-second spin */
+}
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    } to {
+        transform: rotate(360deg);
+    }
+}

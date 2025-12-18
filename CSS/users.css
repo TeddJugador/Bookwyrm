@@ -1,0 +1,685 @@
+/*  Munashe Madziwanyika - g23M8754
+    Theodore Masi - g23M7028
+    Kyle Nkomo - g23N8653
+    Keith Dube - g23D5910 
+*/
+
+:root {
+    --primary-color: #B03A2D;
+    --secondary-color: #D58936;
+    --neutral: #C1C6C9;
+    --text-color: #383232;
+    --background-color: #F0F3F5;
+    --box-radius: 12px;
+    --box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    display: flex;
+    background-color: white;
+}
+
+
+/*makes the nav bar fixed vertically*/
+.nav-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 20%;
+    height: 100vh;
+    background-color: var(--primary-color);
+    display: flex;
+    flex-direction: column;
+    box-shadow: 2px 0 12px rgba(0,0,0,0.08);
+    z-index: 100;
+    transition: width 0.3s;
+}
+
+.nav-logo {/*makes the logo andf title float next to eachother*/
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1rem 1rem 1rem;
+    gap: 1rem;
+}
+
+.nav-logo h2 {
+    color: var(--background-color);
+    font-size: 2rem;
+    text-wrap: wrap;
+
+    transition: max-height 0.3s ease, opacity 0.3s ease, padding 0.3s;
+    overflow: hidden;
+    max-height: 500px; /* enough to show all items */
+    opacity: 1;
+    padding: 1rem;
+}
+
+.nav-logo img {  /*Logo*/
+    width: 50px;
+    height: 50px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.nav-bar h2 {
+    color: var(--background-color);
+    text-align: center;
+}
+
+.nav-links {
+    list-style: none;
+    margin-top: 1rem;
+
+    transition: max-height 0.3s ease, opacity 0.3s ease, padding 0.3s;
+    overflow: hidden;
+    max-height: 500px; /* enough to show all items */
+    opacity: 1;
+    padding: 1rem 0;
+}
+
+
+.nav-links li {
+    margin: 0;
+    text-align: center;
+    width: 100%;
+    font-size: 1.2rem;
+    transition: background 0.2s;
+}
+
+
+.nav-links a {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1rem;
+    color: var(--background-color);
+    text-decoration: none;
+    padding: 1rem;
+    font-size: 1.2rem;
+    transition: background 0.2s color 0.3s;
+}
+
+.nav-links a i,
+.bottom-links a i {
+    margin-right: 0.7em;
+    min-width: 1.2em;
+    text-align: center;
+}
+
+.nav-links a.active,
+.nav-links li:hover,
+.bottom-links a:hover {
+    background-color: #c94d3f;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    color: var(--background-color);
+}
+
+.bottom-links {
+    display: flex;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    margin-top: auto;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    border-top: 1px solid var(--neutral);
+    gap: 1rem;
+}
+
+.bottom-links li {
+    width: auto;
+    margin-left: 1rem;
+    border-radius: var(--box-radius);
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+.bottom-links a {/*logout button styling*/
+    background: #c94d3f;
+    color: var(--background-color);
+    border: none;
+    border-radius: var(--box-radius);
+    padding: 0.5rem 1.2rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+    text-decoration: none;
+}
+
+
+
+.header{/*displays the current tab name and user info*/
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    border-bottom: 1px solid var(--neutral);
+    background-color: var(--background-color);
+    border-radius: var(--box-radius);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    padding: 1.5rem 2rem;
+    margin-bottom: 2rem;
+}
+
+
+.header h1 {
+    font-size: 2.5rem;
+    color: var(--text-color);
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.user-info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+    color: var(--text-color);
+    font-size: 1.2rem;
+    border-radius: var(--box-radius);
+
+}
+
+.user-info img {
+    width: 50px;
+    height: 50px;
+    border: 2px solid var(--secondary-color);
+    border-radius: 50%;
+}
+
+
+/* push main sections to the right of the sidebar */
+main {
+    margin-left: 20%; /* same as nav-bar width */
+    padding: 2rem;
+    width: 80%;
+    transition: margin-left 0.3s, width 0.3s;
+}
+
+.add-btn {
+    background: var(--primary-color);
+    color: #fff;
+    border: none;
+    border-radius: var(--box-radius);
+    padding: 0.7rem 1.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    transition: background 0.2s, transform 0.2s;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.5px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+}
+
+.add-btn:hover {
+    background: #c94d3f; /* slightly lighter than primary */
+    transform: translateY(-2px) scale(1.03);
+}
+
+
+/* Table container for horizontal scroll on small screens */
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+    background: #fff;
+    border-radius: var(--box-radius);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+/* Table styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: transparent;
+    font-size: 1rem;
+    color: var(--text-color);
+   
+}
+
+th, td {
+    padding: 0.75rem 1rem;
+    text-align: center;
+    border-bottom: 1px solid var(--neutral);
+    vertical-align: middle;
+}
+
+th {
+    background: var(--secondary-color); 
+    color: white;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    border-top-left-radius: var(--box-radius);
+    border-top-right-radius: var(--box-radius);
+}
+
+tr:hover{
+    background-color: #f1f1f1;
+}
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+tr:nth-child(even) {
+    background: #f7f8fa;
+}
+
+.edit-btn, .delete-btn {
+    padding: 0.4rem 1rem;
+    border: none;
+    border-radius: var(--box-radius);
+    font-size: 1rem;
+    cursor: pointer;
+    margin-right: 0.5rem;
+    transition: background 0.2s, color 0.2s;
+    text-decoration: none;
+}
+
+.edit-btn {
+    background: var(--secondary-color);
+    color: #fff;
+}
+
+.edit-btn:hover {
+    background: #e7a74d;
+}
+
+.delete-btn {
+    background: #e57373;
+    color: #fff;
+}
+
+.delete-btn:hover {
+    background: #c0392b;
+}
+
+.actions{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 2rem;
+}
+
+
+
+/* Custom Scrollbar */
+html::-webkit-scrollbar {
+  width: 6px; /* Slimmer scroll bar */
+}
+html::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+html::-webkit-scrollbar-thumb {
+  background: var(--primary-color);
+}
+html::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-color);
+}
+
+
+/* --- Pagination Controls (NEW) --- */
+
+.pagination{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem 0 4rem 0;
+    border-top: 1px solid var(--neutral);
+    margin: 2rem;
+}
+
+.pagination p{
+    color: var(--text-color);
+}
+
+.pagination a{
+    text-decoration: none;
+}
+
+.page-info {
+    display: flex;
+    font-size: 1rem;
+    color: var(--text-light);
+    font-weight: 600;
+    justify-content: center;
+    align-items: center;
+}
+
+
+#pagination-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 0;
+}
+
+.page-btn {
+  padding: 0.5rem 1rem;
+    border: 1px solid var(--neutral);
+    background-color: var(--white);
+    color: var(--text-dark);
+    font-weight: 600;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.page-btn:hover:not(.active):not(:disabled) {
+    background-color: var(--neutral);
+    color: var(--primary-color);
+}
+
+.page-btn-active {
+    padding: 0.5rem 1rem;
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: 600;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.page-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+
+
+/* --- Search Bar Styling --- */
+#search-container {
+    margin-top: 1rem;
+    width: 100%;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.filter-header h3{
+    color: var(--text-color);
+}
+
+.filter-header p{
+    color: var(--secondary-color);
+    padding: 5px;
+}
+
+.filter-group{
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+
+
+#manga-search {
+    width: 100%;
+    max-width: 600px;
+    padding: 0.75rem 1.25rem;
+    border: 2px solid var(--neutral);
+    border-radius: 12px;
+    font-size: 1rem;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    outline: none;
+    margin-bottom: 1rem;
+}
+
+#manga-search::placeholder {
+    color: var(--text-color);
+}
+
+#manga-search:focus {
+    border-color: var(--secondary-color);
+}
+
+
+/* --- Genre Filter Buttons & Clear Button --- */
+#genre-filter-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    justify-content: center;
+    padding: 0 0 2rem 0;
+}
+
+/* Row for the clear button */
+#controls-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    gap:1rem;
+}
+
+#special-btn{
+    border:none;
+    background:none;
+    padding:0;
+    margin:0;
+    cursor:pointer;
+}
+
+input[type="checkbox"] {
+    display: none;
+}
+
+
+.genre-btn {
+    padding: 0.5rem 1rem;
+    border: 2px solid var(--primary-color);
+    background-color: transparent;
+    color: var(--primary-color);
+    font-weight: 600;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.genre-btn:hover {
+    background-color: var(--primary-color);
+    color: var(--white);
+    box-shadow: var(--box-shadow);
+}
+
+/* Active style used for selected genres and the 'All' button when no others are selected */
+.genre-btn-active {
+    background-color: var(--primary-color);
+    color: var(--white);
+    border-color: var(--primary-color);
+    transform: scale(1.05);
+    box-shadow: var(--shadow-lg);
+}
+
+/* Style for the Clear Filters button */
+.clear-filters-btn {
+    border-color: var(--text-light);
+    border: 0;
+    color: var(--text-color);
+    background-color: lightgray;
+    font-weight: 700;
+    padding: 0.6rem 1.5rem; 
+    transform: scale(1);
+    border-radius: 12px;
+}
+
+.clear-filters-btn:hover {
+        background-color: var(--text-color);
+        color: white;
+}
+
+
+.apply-filters-btn {
+    border-color: var(--text-light);
+    color: var(--text-color);
+    background-color: #e57373;
+    font-weight: 700;
+    padding: 0.6rem 1.5rem; 
+    transform: scale(1);
+    border-radius: 12px;
+    border: 0;
+}
+
+.apply-filters-btn:hover {
+        background-color: var(--primary-color);
+        color: white;
+}
+
+
+@media (max-width: 900px) {
+    .nav-bar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: auto;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem;
+        z-index: 1000;
+    }
+
+    .nav-logo {
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 0.5rem;
+        padding: 0;
+    }
+
+    .nav-logo img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .nav-logo h2 {
+        font-size: 1.5rem;
+        padding: 0;
+    }
+
+  
+    .nav-links,
+    .bottom-links {
+        display: none;
+    }
+
+
+    main {
+        margin-left: 0;
+        margin-top: 90px; /* creates space for top nav */
+        width: 100%;
+        padding: 1rem;
+    }
+
+  
+    .header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 1rem;
+        padding: 1rem;
+    }
+
+    .header h1 {
+        font-size: 2rem;
+    }
+
+    .user-info {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+ 
+    #search-container {
+        margin-top: 1rem;
+        text-align: center;
+        width: 100%;
+    }
+
+    .filter-group {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.8rem;
+    }
+
+    #manga-search {
+        width: 100%;
+        max-width: 100%;
+        font-size: 1rem;
+    }
+
+    #genre-filter-container {
+        justify-content: center;
+        gap: 0.5rem;
+    }
+
+    #controls-row {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+
+    /* Table adjustments */
+    .table-container {
+        padding: 1rem;
+        overflow-x: auto;
+    }
+
+    table {
+        width: 100%;
+        font-size: 0.9rem;
+        border-spacing: 0;
+    }
+
+    th, td {
+        padding: 0.6rem;
+        white-space: nowrap;
+    }
+
+   
+    .add-btn,
+    .edit-btn,
+    .delete-btn,
+    .clear-filters-btn,
+    .apply-filters-btn {
+        width: 100%;
+        font-size: 1rem;
+        padding: 0.8rem;
+    }
+
+    .pagination {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        margin: 1rem 0;
+        padding: 1rem 0;
+    }
+
+    #pagination-controls {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    body {
+        flex-direction: column;
+        overflow-x: hidden;
+    }
+}

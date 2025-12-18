@@ -1,0 +1,405 @@
+:root {
+    --primary-color: #B03A2D; 
+    --secondary-color: #D58936; 
+    --neutral: #c1c6c9;
+    --text-color: #383232;
+    --background-color: #f0f3f5;
+    --border-radius: 12px;
+    --box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    --dark-color: #333333; 
+    --light-color: #F2F2F2;
+    --gray-color: #555555;
+}
+
+/* Global Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Custom Scrollbar */
+html::-webkit-scrollbar { width: 6px; }
+html::-webkit-scrollbar-track { background: var(--secondary-color); }
+html::-webkit-scrollbar-thumb { background: var(--primary-color); }
+html::-webkit-scrollbar-thumb:hover { background: var(--primary-color); }
+
+a {
+    text-decoration: none;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+.container {
+    max-width: 1200px;
+    width: 90%; 
+    margin: 0 auto;
+}
+
+/* General section styles  */
+.section {
+    padding: 80px 0;
+    background-color: var(--background-color);
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 50px;
+    position: relative;
+}
+
+.section-title h2 {
+    font-size: 36px;
+    color: var(--primary-color);
+    display: inline-block;
+    padding-bottom: 10px;
+}
+
+.section-title h2::after {
+    content: '';
+    position: absolute;
+    width: 100px;
+    height: 3px;
+    background-color: var(--secondary-color);
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-image: url('../Images/kakashiHeader.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+}
+
+.hero-content {
+    z-index: 888;
+    color: var(--secondary-color);
+    width: 80%;
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    text-align: left; 
+}
+
+.hero-content h1 {
+    font-size: 4em;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-size: 1.5em;
+    line-height: 1.5;
+    color: var(--light-color); 
+    opacity: 95%;
+}
+
+ 
+/*  TRENDING SLIDER  */
+.trending-slider {
+    position: relative;
+    overflow: hidden;
+    padding: 0 50px; 
+    transition: all 0.3s ease-in-out; 
+}
+
+.slider-container {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.manga-card {
+    flex: 0 0 25%; 
+    padding: 0 15px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.manga-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px var(--box-shadow);
+}
+
+.manga-card img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: var(--border-radius);
+    margin-bottom: 15px;
+    box-shadow: var(--box-shadow);
+}
+
+.manga-card h3 {
+    font-size: 18px;
+    margin-bottom: 5px;
+    color: var(--text-color);
+}
+.manga-card p {
+    color: var(--gray-color);
+    font-size: 0.9em;
+}
+
+.slider-controls {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+    padding: 0 10px;
+    pointer-events: none; 
+}
+.slider-btn {
+    pointer-events: auto; 
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: var(--box-shadow);
+    font-size: 1.5em;
+    user-select: none;
+}
+
+.slider-btn:hover {
+    background-color: var(--secondary-color);
+}
+
+
+/*  RECOMMENDED SECTION*/
+.recommended {
+    background-color: var(--dark-color);
+    color: white;
+}
+
+.recommended .section-title h2 {
+    color: var(--secondary-color);
+}
+
+.recommended-slider {
+    position: relative;
+    height: 500px;
+    overflow: hidden;
+    border-radius: var(--border-radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease-in-out; 
+}
+
+.recommended-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease;
+    display: flex;
+    align-items: center;
+    padding: 0 50px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.recommended-slide::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6); 
+}
+
+.recommended-slide:first-child.active {
+    transition: opacity 1.2s ease-in;
+}
+
+
+.recommended-slide.active {
+    opacity: 1;
+}
+
+.slide-content {
+    z-index: 10;
+    max-width: 500px;
+    padding: 30px; 
+    border-radius: var(--border-radius);
+    background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(2px);
+    border: 1px solid var(--secondary-color);
+}
+
+.slide-content h3 {
+    font-size: 28px;
+    margin-bottom: 15px;
+    color: var(--secondary-color);
+}
+
+.slide-content p {
+    margin-bottom: 20px;
+}
+
+.btn-read {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+.btn-read:hover {
+    background-color: var(--secondary-color);
+}
+
+
+/*  LATEST SECTION GRID  */
+.latest-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); 
+    gap: 25px;
+}
+.latest-grid .manga-card {
+    padding: 0;
+    flex: none;
+    box-shadow: none;
+    text-align: left;
+}
+.latest-grid .manga-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+.latest-grid .manga-card img {
+    height: 250px; 
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+
+/*  CONTACT SECTION  */
+.contact {
+    background-color: var(--dark-color);
+    color: white;
+}
+
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+.form-control {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 4px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: 1px solid transparent;
+    transition: border-color 0.3s ease;
+}
+.form-control:focus {
+    outline: none;
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 0 2px rgba(213, 137, 54, 0.5);
+}
+
+textarea.form-control {
+    height: 150px;
+    resize: vertical;
+}
+
+.contact .btn-outline {
+    width: 100%;
+    margin-top: 15px;
+}
+
+
+/*Responsiveness*/
+
+@media (max-width: 768px) {
+
+/* Home Section */
+    .section {
+        padding: 40px 0; 
+    }
+
+    .hero-content {
+        width: 90%;
+        text-align: center;
+    }
+    .hero-content h1 {
+        font-size: 2.8em; 
+        letter-spacing: 2px;
+    }
+    .hero-content p {
+        font-size: 1.1em;
+    }
+
+/* Trending Slider: Show 2 cards per row */
+    .trending-slider {
+        padding: 0 10px; 
+    }
+    .manga-card {
+        flex: 0 0 50%; /* 2 cards per row */
+        padding: 0 5px;
+    }
+
+/* Latest Grid: Adjust min size for smaller screens */
+    .latest-grid {
+            grid-template-columns: repeat(2, 1fr); /* Force 2 columns */
+            gap: 15px;
+    }
+    .latest-grid .manga-card img {
+        height: 200px; 
+    }
+
+/* Recommended Section */
+    .recommended-slide {
+    padding: 20px;
+    }
+    .slide-content {
+    max-width: 100%; 
+    padding: 20px;
+    }
+
+    /* Footer Adjustment */
+    .footer-content {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    }
+}

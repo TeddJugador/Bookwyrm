@@ -1,0 +1,26 @@
+@media (max-width: 768px) {
+    header {
+        justify-content: center;
+    }
+
+    nav {
+        flex-direction: column; /* Change nav bar to be vertical for narrow screens */
+        height: auto; /* Heigh to fit all contents */
+        padding: 1rem;
+        gap: 0;
+    }
+
+    .nav-logo {
+        justify-content: center;
+        margin-top: 10px;
+        width: 100%;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column; /* Stack nav links over each other */
+        width: 100%;
+        align-items: center;
+        gap: 0;
+    }
+} 

@@ -1,0 +1,291 @@
+/*  Munashe Madziwanyika - g23M8754
+    Theodore Masi - g23M7028
+    Kyle Nkomo - g23N8653
+    Keith Dube - g23D5910 
+*/
+
+/*CONTAINS BOTH THE NAV AND THE FOOTER*/
+
+:root{
+    --primaryColor: #B03A2D;
+    --secondaryColor: #D58936;
+    --neutral: #C1C6C9;
+    --text-color: #383232;
+    --background-color: #F0F3F5;
+    --box-radius: 12px;
+    --box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI';
+}
+
+header{
+    width: 100%;
+    min-width: 0;
+}
+
+/*NAV BAR*/
+nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 5rem;
+    flex-direction: row;
+    width: 100%;
+    min-width: 200px;
+    height: 91px;
+    background-color: var(--primaryColor);
+    margin: 0;
+    padding: 0 24px;
+    /*position: fixed;*/
+}
+
+.nav-logo{/*makes the logo andf title float next to eachother*/
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    flex: 0 1 auto; /*lets the logo shrink */
+    min-width: 0;
+    align-items: center;
+    padding-left: 1rem;
+} 
+
+.nav-logo h2{
+    color: var(--background-color);
+    font-size: 2rem;
+}
+
+.nav-logo img{  /*Logo*/
+    width: 50px;
+    height: 50px;
+}
+
+.nav-links{/*removes styling from nav bar links*/
+    list-style-type: none;
+    height: 100%;
+    min-width: 0;
+    overflow: visible;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /*new*/
+}
+
+
+.nav-links li{
+    list-style: none;
+    white-space: normal;
+    display: flex;
+    flex-wrap: wrap; 
+    padding: 1.5rem;
+    margin: 0;
+    min-width: 0;
+    overflow: visible;
+   
+}
+
+.nav-item:hover{/*styles the link for when you hover over it*/
+    color: #383232;
+    height: auto;
+    width: auto;
+}
+
+.nav-item{/*link in nav bar*/
+    transition: 0.7s ease;  /*gives it a little animation*/
+    text-decoration: none;
+    color: var(--background-color);
+    font-size: 1.5rem;
+    font-size: clamp(1rem, 2vw, 2rem); /*shrinks the font size as the window shrinks*/
+} 
+
+.dropdown{
+    position: relative;
+}
+
+.dropdown-content{/*makes the menu float under Contact Us tab*/
+    display: none;/*only displayed when hovered over*/
+    position: absolute;
+   
+    background-color: var(--text-color);
+    padding: 10px;
+    left: 0; /* adjust to align under link */
+    top: 100%;/*menu sticks directly under the nav bar*/
+    z-index: 10;
+    width: 100%;
+   
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;/*only displayed when hovered over*/
+}
+
+.dropdown-content p{
+    border-bottom: 1px solid var(--background-color);
+    color: var(--background-color);
+    display: block;
+    padding: 5px;
+    font-size: clamp(1rem, 2vw, 1rem);
+    white-space: normal;
+    word-wrap: break-word;  /*makes the text wrap into a new line when the screen shrinks*/
+}
+
+.hamburger{
+    display: none;
+    cursor: pointer;
+}
+
+.bar{
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    background-color: var(--background-color);
+}
+
+@media (max-width: 768px) {/*adjusts the nav bar to turn it into a hamburger menu*/
+    .hamburger{
+        display: block; /*reveals the menu*/
+    }
+
+    .hamburger.active .bar:nth-child(2){
+        opacity: 0;
+    }
+
+    .hamburger.active .bar:nth-child(1){
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .hamburger.active .bar:nth-child(3){
+        transform: translateY(-8px) rotate(-45deg);
+    } /*transforms the 3 bars into an X*/
+
+    .nav-links{
+        position: absolute; /*sticks the menu to the nav*/
+        left: -100%;
+        top: 70px;
+        gap:0;
+        flex-direction: column;
+        background-color: var(--primaryColor);
+        width: 100%;
+        height: auto;
+        text-align: center;
+        transition: 0.3s;
+        z-index: 1000; /*covers the content behind the menu*/
+    }
+
+
+
+    .nav-links.active{
+        left: 0;
+    } 
+} 
+
+
+/*end of nav bar*/
+
+
+/*FOOTER*/
+.footer-container{
+    display: flex;  /*helps with responsiveness*/
+    flex-wrap: wrap; 
+    justify-content: space-between;
+    gap: 2rem;
+    align-items: start;
+    padding: 2rem;
+    width: 100%;
+    background-color: var(--primaryColor);
+    color: var(--background-color);
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+.footer-logo{
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    align-items: center;
+    padding-left: 1rem;
+}
+
+.footer-logo h2{
+    color: var(--background-color);
+    font-size: 2rem;
+}
+
+.footer-logo p{
+    margin: 0;
+    opacity: 0.8;
+}
+
+.footer-logo img{  /*Logo*/
+    width: 100px;
+    height: 100px;
+}
+
+.footer-logo,
+.footer-contact,
+.footer-socials,
+.footer-status {
+  flex: 1 1 300px; /* grow, shrink, base-width */
+  min-width: 250px; /* stops from getting too small */
+
+  text-align: center;
+  align-items: center;
+}
+
+
+.footer-socials{
+    display: flex;
+    flex-direction: column; /*makes the links stay on top of eachother*/
+}
+
+.footer-socials img{
+    width: 30px;
+    height: 30px;
+}
+
+.footer-socials a{
+    text-decoration: none;
+    color: var(--background-color);
+    display: flex;
+    transition: transform 0.2s, color 0.2s; /*makes the link float when hovering on it*/ 
+    gap: 5px;/*separates the icon and the text*/
+}
+
+.footer-socials a:hover{/*styling for when the link is hovered on*/
+    transform: translateY(-3px);
+    color: var(--text-color);
+}
+
+
+.footer-contact ul, .footer-socials ul{
+    list-style-type: none;
+    text-align: center;
+}
+
+.footer-copyright{
+    width: 100%;
+    text-align: center;
+    color: var(--background-color);
+    background-color: #B03A2D;
+    border-top: 1px solid #383232;
+}
+
+/* Custom Scrollbar */
+html::-webkit-scrollbar {
+  width: 6px; /*Slimmer scroll bar */
+}
+html::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+html::-webkit-scrollbar-thumb {
+  background: var(--primary-color);
+}
+html::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-color);
+}
