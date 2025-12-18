@@ -1,8 +1,3 @@
-- Make sure image/video image quality does not vary too much to avoid performance issues
-- Author page top upload
-- page for reading a book
-- back end for reviews, signing up, and logging in
-- dashboard for all 3 roles
-- form validation
-- 
-- 
+CRUD-based web application for rating manga.
+Website address: https://bookwyrm.liveblog365.com
+Collaborators: Munashe Madziwanyika(https://github.com/g23m8754), Kyle Nkomo(https://github.com/Lukewarmdegree04), Keith Dube (https://github.com/g23d5910)
